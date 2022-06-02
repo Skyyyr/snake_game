@@ -22,12 +22,6 @@ class Snake:
         self.direction = random.choice([UP, DOWN, LEFT, RIGHT])
         self.color = (17, 24, 47)
 
-    # def __int__(self):
-    #     self.length = 1
-    #     self.positions = [((SCREEN_WIDTH / 2), (SCREEN_HEIGHT / 2))]
-    #     self.direction = random.choice([UP, DOWN, LEFT, RIGHT])
-    #     self.color = (17, 24, 47)
-
     def get_head_position(self):
         return self.positions[0]
 
@@ -81,13 +75,8 @@ class Food:
         self.color = (223, 163, 49)
         self.randomize_position()
 
-    # def __int__(self):
-    #     self.position = (0, 0)
-    #     self.color = (223, 163, 49)
-    #     self.randomize_position()
-
     def randomize_position(self):
-        self.position = (random.randint(0, GRID_WIDTH-1) * GRIDSIZE, random.randint(0, GRID_WIDTH-1) * GRIDSIZE)
+        self.position = (random.randint(0, GRID_WIDTH - 1) * GRIDSIZE, random.randint(0, GRID_WIDTH - 1) * GRIDSIZE)
 
     def draw(self, surface):
         r = pygame.Rect((self.position[0], self.position[1]), (GRIDSIZE, GRIDSIZE))
