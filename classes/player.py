@@ -2,7 +2,6 @@ import random
 import sys
 import pygame
 
-
 UP = (0, -1)
 DOWN = (0, 1)
 LEFT = (-1, 0)
@@ -72,4 +71,4 @@ class Snake:
                     self.turn(RIGHT)
                 elif event.key == pygame.K_SPACE:
                     # TODO: Add test functionality here
-                    pass
+                    self.length += 1

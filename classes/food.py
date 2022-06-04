@@ -7,9 +7,9 @@ GRID_WIDTH = SCREEN_HEIGHT / GRID_SIZE
 
 
 class Food:
-    def __init__(self):
+    def __init__(self, color):
         self.position = (0, 0)
-        self.color = (223, 163, 49)
+        self.color = color
         self.randomize_position()
 
     def randomize_position(self):
