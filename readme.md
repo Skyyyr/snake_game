@@ -11,9 +11,12 @@ Simply google how to install pygame if you find yourself needing it.
 Below you will find a list of objectives to accomplish, 
 this should be an ever updating list as the project moves on.
 
-# TODO List
+## TODO List
+(*Not in any particular order*)
 1. Make Obstacles that can be placed around the map randomly
 2. Keep track of the highest score ever from the local machine
+   1. Allow the user to input their name to be saved with it
+      1. save that to a text file
 3. Add more types of "food" that can be ate by the snake
    1. Bonus to length (+2?)
    2. Reduction to length (-1?)
@@ -26,7 +29,17 @@ this should be an ever updating list as the project moves on.
 4. Expand the map size
 5. Add AI Snakes
 6. Add a main menu
-7. Add options menu
-8. Add music
-9. Add sound effects
-10. Add textures for the background, and snake
+   1. Add options menu
+      1. Save customized options to txt file
+         1. snake color
+         2. background color 1
+         3. background color 2
+   2. Play Button
+   3. Exit Button
+7. Visuals
+   1. Add music
+   2. Add sound effects
+   3. Add textures instead of using the rbg color system
+
+## Bug list
+No known bugs yet - where are they hiding.... 

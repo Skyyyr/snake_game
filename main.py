@@ -9,6 +9,13 @@ GRID_SIZE = 20
 GRID_WIDTH = SCREEN_HEIGHT / GRID_SIZE
 GRID_HEIGHT = SCREEN_WIDTH / GRID_SIZE
 
+# COLORS
+COLOR_BLUE = (0, 0, 255)
+COLOR_RED = (255, 0, 0)
+COLOR_GREEN = (0, 0, 255)
+BACKGROUND_COLOR_ONE = (93, 216, 228)
+BACKGROUND_COLOR_TWO = (84, 194, 205)
+
 
 def main():
     pygame.init()
@@ -42,14 +49,20 @@ def main():
 
 
 def drawGrid(surface):
+    """
+    We draw a grid based off our constant variables.
+    Right now we are just saying for every other spot color the rect differently
+    :param surface: This is the surface we draw to
+    :return: void
+    """
     for y in range(0, int(GRID_HEIGHT)):
         for x in range(0, int(GRID_WIDTH)):
             if (x + y) % 2 == 0:
-                r = pygame.Rect((x * GRID_SIZE, y * GRID_SIZE), (GRID_SIZE, GRID_SIZE))
-                pygame.draw.rect(surface, (93, 216, 228), r)
+                rect = pygame.Rect((x * GRID_SIZE, y * GRID_SIZE), (GRID_SIZE, GRID_SIZE))
+                pygame.draw.rect(surface, BACKGROUND_COLOR_ONE, rect)
             else:
-                rr = pygame.Rect((x * GRID_SIZE, y * GRID_SIZE), (GRID_SIZE, GRID_SIZE))
-                pygame.draw.rect(surface, (84, 194, 205), rr)
+                rect = pygame.Rect((x * GRID_SIZE, y * GRID_SIZE), (GRID_SIZE, GRID_SIZE))
+                pygame.draw.rect(surface, BACKGROUND_COLOR_TWO, rect)
 
 
 main()

@@ -2,11 +2,11 @@ import random
 import sys
 import pygame
 
+
 UP = (0, -1)
 DOWN = (0, 1)
 LEFT = (-1, 0)
 RIGHT = (1, 0)
-
 
 SCREEN_WIDTH = 480
 SCREEN_HEIGHT = 480
@@ -14,6 +14,7 @@ SCREEN_HEIGHT = 480
 GRID_SIZE = 20
 GRID_WIDTH = SCREEN_HEIGHT / GRID_SIZE
 GRID_HEIGHT = SCREEN_WIDTH / GRID_SIZE
+
 
 class Snake:
     def __init__(self):
@@ -69,3 +70,6 @@ class Snake:
                     self.turn(LEFT)
                 elif event.key == pygame.K_RIGHT:
                     self.turn(RIGHT)
+                elif event.key == pygame.K_SPACE:
+                    # TODO: Add test functionality here
+                    pass
