@@ -20,13 +20,11 @@ Key: ~~Completed Task~~
       1. save that to a text file
 3. Add more types of "food" that can be ate by the snake
    1. ~~Bonus to length (+2?)~~
-   2. Reduction to length (-1?)
+   2. ~~Reduction to length (-1?)~~
       1. Would need to make sure you can't go past the length of 1
-   3. Immortality for a short duration?
-      1. Would need to make sure that once it ends if the snake should be reset, we reset
-   4. Speed up for a duration (5-10 seconds?)
-   5. Slow down for a duration ("^")
-   6. ~~Bonus score points~~
+   3. Speed up for a duration (5-10 seconds?)
+   4. Slow down for a duration ("^")
+   5. ~~Bonus score points~~
 4. Expand the map size
 5. Add AI Snakes
 6. Add a main menu

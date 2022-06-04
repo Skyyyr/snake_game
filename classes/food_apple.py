@@ -2,19 +2,32 @@ from random import randint
 
 from food import Food
 
-# Temporary names will need better naming | Example of how it can be done
+# Temporary example of how it can be done
 FOOD_TYPES = [
     {
-        'type': 'basic',
         'length': 1,
         'score': 1,
-        'color': (255, 0, 0),
+        'color': (255, 153, 153),
     },
     {
-        'type': 'advanced',
         'length': 2,
+        'score': 1,
+        'color': (255, 178, 102),
+    },
+    {
+        'length': 1,
         'score': 2,
-        'color': (255, 102, 102),
+        'color': (255, 255, 204),
+    },
+    {
+        'length': 0,
+        'score': 3,
+        'color': (255, 255, 0),
+    },
+    {
+        'length': 3,
+        'score': 0,
+        'color': (204, 0, 102),
     },
 ]
 

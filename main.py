@@ -38,6 +38,9 @@ def main():
     snake = Snake()
     food = Food(COLOR_RED)
     bad_food = Food(COLOR_GREEN)
+    # This isn't the actual way to set the bad food details - we are just using the food_apple class as a test
+    bad_food.adjust_length_value(-1)
+    bad_food.adjust_point_value(-1)
 
     my_font = pygame.font.SysFont("monospace", 16)
 
@@ -47,15 +50,17 @@ def main():
         draw_grid(surface)
         snake.move()
         # TODO Make this a function to track all types of objects that get added
-        if snake.get_head_position() == food.position:
-            snake.length += food.length_value
-            snake.score += food.point_value
-            food.change_food()
-            food.randomize_position()
 
+        # if snake.get_head_position() == food.position:
+        #     snake.length += food.length_value
+        #     snake.score += food.point_value
+        #     food.change_food()
+        #     food.randomize_position()
+        head_collision_detection(snake, food, bad_food)
         # We want to setup a function to determine what should or shouldn't be drawn to the screen.
         snake.draw(surface)
         food.draw(surface)
+        bad_food.draw(surface)
 
         screen.blit(surface, (0, 0))
         text = my_font.render(f"Score {snake.score}".format(snake.score), 1, COLOR_WHITE)
@@ -80,15 +85,15 @@ def draw_grid(surface):
                 pygame.draw.rect(surface, BACKGROUND_COLOR_TWO, rect)
 
 
-def head_collision_detection(player_position, food, bad_food):
-    """
-    Due to the way our position tracking working at this time -
-    :param player_position:
-    :param food:
-    :param bad_food:
-    :return:
-    """
-    pass
+def head_collision_detection(player, food, bad_food):
+    if player.get_head_position() == food.position:
+        player.adjust_point_value(food.point_value)
+        player.adjust_length_value(food.length_value)
+        food.randomize_position()
+    if player.get_head_position() == bad_food.position:
+        player.adjust_point_value(bad_food.point_value)
+        player.adjust_length_value(bad_food.length_value)
+        bad_food.randomize_position()
 
 
 # This is how the game starts

@@ -38,6 +38,9 @@ class Snake:
         new = (((cur[0] + (x * GRID_SIZE)) % SCREEN_WIDTH), (cur[1] + (y * GRID_SIZE)) % SCREEN_HEIGHT)
         if len(self.positions) > 2 and new in self.positions[2:]:
             self.reset()
+        # If we need to shrink our snake
+        elif len(self.positions) > self.length:
+            self.positions.pop()
         else:
             self.positions.insert(0, new)
             if len(self.positions) > self.length:
@@ -69,6 +72,29 @@ class Snake:
                     self.turn(LEFT)
                 elif event.key == pygame.K_RIGHT:
                     self.turn(RIGHT)
-                elif event.key == pygame.K_SPACE:
-                    # TODO: Add test functionality here
-                    self.length += 1
+                elif event.key == pygame.K_DELETE:
+                    self.adjust_length_value(-1)
+                elif event.key == pygame.K_1:
+                    self.adjust_length_value(1)
+
+    def adjust_point_value(self, value):
+        """
+        This function should be used any time we want to adjust the point value,
+        so we can do our case checks.
+        :param value: The amount to adjust up or down
+        :return: void
+        """
+        self.score += value
+        if self.score < 0:
+            self.score = 0
+
+    def adjust_length_value(self, value):
+        """
+        This function should be used any time we want to adjust the length value,
+        so we can do our case checks.
+        :param value: The amount to adjust up or down
+        :return: void
+        """
+        self.length += value
+        if self.length < 1:
+            self.length = 1
