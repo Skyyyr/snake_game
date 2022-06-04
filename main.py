@@ -33,25 +33,27 @@ def main():
     # Setup the surface
     surface = pygame.Surface(screen.get_size())
     surface = surface.convert()
-    drawGrid(surface)
-    # Initialize our player and a food
-    # TODO Make this a function so we can add more settings especially when adding more foods
+    draw_grid(surface)
+    # Initialize our player and start with a food
     snake = Snake()
     food = Food(COLOR_RED)
+    bad_food = Food(COLOR_GREEN)
 
     my_font = pygame.font.SysFont("monospace", 16)
 
     while True:
         clock.tick(GAME_SPEED)  # This is where we would manipulate the speed slow/fast
         snake.handle_keys()
-        drawGrid(surface)
+        draw_grid(surface)
         snake.move()
         # TODO Make this a function to track all types of objects that get added
         if snake.get_head_position() == food.position:
-            snake.length += 1
-            snake.score += 1
+            snake.length += food.length_value
+            snake.score += food.point_value
+            food.change_food()
             food.randomize_position()
-        # TODO Spawning function - to determine what's/how many spawned etc
+
+        # We want to setup a function to determine what should or shouldn't be drawn to the screen.
         snake.draw(surface)
         food.draw(surface)
 
@@ -61,7 +63,7 @@ def main():
         pygame.display.update()
 
 
-def drawGrid(surface):
+def draw_grid(surface):
     """
     We draw a grid based off our constant variables.
     Right now we are just saying for every other spot color the rect differently
@@ -78,4 +80,16 @@ def drawGrid(surface):
                 pygame.draw.rect(surface, BACKGROUND_COLOR_TWO, rect)
 
 
+def head_collision_detection(player_position, food, bad_food):
+    """
+    Due to the way our position tracking working at this time -
+    :param player_position:
+    :param food:
+    :param bad_food:
+    :return:
+    """
+    pass
+
+
+# This is how the game starts
 main()
